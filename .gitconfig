@@ -1,0 +1,37 @@
+[user]
+        name = Adrian Joian
+        email = ajoian@microsoft.com
+
+[core]
+        editor = vim
+[alias]
+        lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+        co = checkout
+        ci = commit
+        st = status
+        br = branch
+        sh = show
+        hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+        type = cat-file -t
+        dump = cat-file -p
+        d = diff --color-words
+        s-u = submodule update --init --recursive
+        s-s = submodule status
+        ls = ls-files
+        l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+        ll = log --stat --abbrev-commit
+        score = shortlog -sn
+        switch = !legit switch \"$@\"
+        branches = !legit branches
+        sprout = !legit sprout \"$@\"
+        unpublish = !legit unpublish \"$@\"
+        harvest = !legit harvest \"$@\"
+        sync = !legit sync \"$@\"
+        publish = !legit publish \"$@\"
+        graft = !legit graft \"$@\"
+[gitreview]
+       username = ajoian
+[pull]
+        rebase = true
+[push]
+        default = simple
