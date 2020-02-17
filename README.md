@@ -34,7 +34,7 @@ I've tried to replicate my mac setup on Windows.
     OS Name:                   Microsoft Windows 10 Enterprise
     OS Version:                10.0.19041 N/A Build 19041   
    ```
-   You can also join the [Windows Insider Program]((https://insider.windows.com/en-us/)) and select the 'Fast' ring or the 'Slow' ring.
+   You can also join the [Windows Insider Program](https://insider.windows.com/en-us/) and select the 'Fast' ring or the 'Slow' ring.
 
 1. Enable the feature by opening an Admin Powershell and typing:
     ```
