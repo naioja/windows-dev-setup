@@ -63,7 +63,7 @@ I've tried to replicate my mac setup on Windows.
     ```
     echo 0 > /proc/sys/fs/binfmt_misc/WSLInterop
     ```
-    Although I find it nice to be able to edit with vscode. For those in need of [vim exit assitance there's a github]((https://github.com/hakluke/how-to-exit-vim)) :D
+    Although I find it nice to be able to edit with vscode. For those in need of [vim exit assitance there is a github]((https://github.com/hakluke/how-to-exit-vim)) with solutions :D
 
 ### Dealing with Linux internals
 
