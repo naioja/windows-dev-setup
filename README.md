@@ -59,6 +59,114 @@ I've tried to replicate my mac setup on Windows.
     wsl --set-version "Ubuntu-18.04" 2
     ```
     >:warning: Please be aware that this will take some time.
+1. If the interoperability part anoyes you just disable it  by running 
+    ```
+    echo 0 > /proc/sys/fs/binfmt_misc/WSLInterop
+    ```
+    Although I find it nice to be able to edit with vscode. For those in need of [vim exit assitance there's a github]((https://github.com/hakluke/how-to-exit-vim)) :D
+
+### Dealing with Linux internals
+
+1. Azure CLI
+
+    By far the simplest way to install is by executing:
+    ```
+    curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+    ```
+    The full TLDR can be found [here]((https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-apt?view=azure-cli-latest)).
+
+    1. Testing that it works simply do:
+        ```
+        az login
+        ```
+1. Installing Ansible
+    ```
+    sudo apt-add-repository ppa:ansible/ansible
+    sudo apt-get update
+    sudo apt-get install -y ansible
+    ```
+
+1. Docker
+    ```
+    sudo apt-get update
+    sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+    sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+    sudo usermod -aG docker $USER
+    ```
+
+    Verifying that it works:
+    ```
+    docker version
+    docker run hello-world
+    ```
+    Optional step for installing Docker Compose into your homedir:
+    ```
+    sudo apt-get update
+    sudo apt-get install -y python3-pip
+    pip3 install --user docker-compose
+    ```
+1. For `git` I've just placed a custom config in the repository. If you are planning to use that one make sure to change the user and email address.
+    ```
+    sudo apt-get install -y git
+    ```
+1. The simplest way I found to setup my ssh-agent was to use `keychain`
+    Start by installing it:
+    ```
+    sudo apt-get install -y keychain
+    ```
+    And then add the following line to your .(bash|zsh)rc file:
+    ```
+    eval $(keychain --eval id_rsa --quiet)
+    ```
+    This will ask once for your password and then launch quently untill you restart in anyway your WSL VM.
+1. Terraform
+
+    In my case I have a bin directory in my $homedir so for getting TF to work what I needed to do was:
+    ```
+    mkdir -p ~/work/bin
+    sudo apt-get update
+    sudo apt-get install -y wget unzip
+    wget https://releases.hashicorp.com/terraform/0.12.20/terraform_0.12.20_linux_amd64.zip -O /tmp/terraform_0.12.20_linux_amd64.zip
+    unzip /tmp/terraform_0.12.20_linux_amd64.zip -d ~/work/bin
+    rm /tmp/terraform_0.12.20_linux_amd64.zip
+    ```
+    And then add a line about the new $PATH in your .(bash|zsh)rc file:
+    ```
+    export PATH=$HOME/work/bin:$PATH
+    ```
+    After sourcing the rc file or opening a new tab executing `terraform -v` should output something like:
+    ```
+    terraform -v
+    Terraform v0.12.20
+    ```
+1. By far my most favorite utility is [`z` which helps me navigate directories super fast]((https://github.com/rupa/z/blob/master/z.sh)).
+
+    ```
+    wget https://raw.githubusercontent.com/rupa/z/master/z.sh -O ~/work/bin/z.sh
+    chmod +x ~/work/bin/z.sh
+    ```
+1. The last item on the list is zsh:
+    ```
+    sudo apt-get update
+    sudo apt-get install -y zsh
+    ```
+    1. Install Oh My Zsh with:
+    ```
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    ```
+    2. Installing the Powerline fonts as mentioned [[here]]((https://medium.com/@slmeng/how-to-install-powerline-fonts-in-windows-b2eedecace58)).
+    1. If everything was setup correctly we can proceed on installing the powerline10k theme
+    ```
+    git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+    ```
+    Then edit your ~/.zshrc and set ZSH_THEME="powerlevel10k/powerlevel10k".
+    Also add the following: POWERLEVEL9K_MODE="awesome-patched"
+    Open a new terminal window and you will get prompted to run the config for your terminal. Alternatively run 
+    ```
+    p10k configure
+    ```
 
 ## Installing Chocolatey
 
