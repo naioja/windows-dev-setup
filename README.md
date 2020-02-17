@@ -24,6 +24,9 @@ I've tried to replicate my mac setup on Windows.
 - VScode 
   - plugins
 
+TODO:
+- dotfiles 
+
 ![](./pic/cover.png)
 
 ## Setting up Linux on Windows
