@@ -41,7 +41,7 @@ I've tried to replicate my mac setup on Windows.
     dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
     dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
     ```
-    Please restart your machine to finish the installation of both components.
+    >:warning: Please restart your machine to finish the installation of both components.
 
 1. My linux distribution of choice is Ubuntu 18.04 and it can installed also using and Admin PowerShell commands:
     ```
@@ -63,7 +63,7 @@ I've tried to replicate my mac setup on Windows.
     ```
     echo 0 > /proc/sys/fs/binfmt_misc/WSLInterop
     ```
-    Although I find it nice to be able to edit with vscode. For those in need of [vim exit assitance there is a github]((https://github.com/hakluke/how-to-exit-vim)) with solutions :D
+    Although I find it nice to be able to edit with vscode. For those in need of [vim exit assitance there is a github](https://github.com/hakluke/how-to-exit-vim) with solutions :D
 
 ### Dealing with Linux internals
 
@@ -73,7 +73,7 @@ I've tried to replicate my mac setup on Windows.
     ```
     curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
     ```
-    The full TLDR can be found [here]((https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-apt?view=azure-cli-latest)).
+    The full TLDR can be found [here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
 
     1. Testing that it works simply do:
         ```
@@ -141,7 +141,7 @@ I've tried to replicate my mac setup on Windows.
     terraform -v
     Terraform v0.12.20
     ```
-1. By far my most favorite utility is [`z` which helps me navigate directories super fast]((https://github.com/rupa/z/blob/master/z.sh)).
+1. By far my most favorite utility is [`z` which helps me navigate directories super fast](https://github.com/rupa/z/blob/master/z.sh).
 
     ```
     wget https://raw.githubusercontent.com/rupa/z/master/z.sh -O ~/work/bin/z.sh
@@ -156,7 +156,7 @@ I've tried to replicate my mac setup on Windows.
     ```
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     ```
-    2. Installing the Powerline fonts as mentioned [[here]]((https://medium.com/@slmeng/how-to-install-powerline-fonts-in-windows-b2eedecace58)).
+    2. Installing the Powerline fonts as mentioned [[here]](https://medium.com/@slmeng/how-to-install-powerline-fonts-in-windows-b2eedecace58).
     1. If everything was setup correctly we can proceed on installing the powerline10k theme
     ```
     git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
@@ -201,7 +201,7 @@ I've tried to replicate my mac setup on Windows.
     ```
     choco install -f powertoys  
     ```
-    I'm mainly using it on my multi display setup to have a better split of the windows. Although it has other [interesting features]((https://github.com/microsoft/PowerToys)).
+    I'm mainly using it on my multi display setup to have a better split of the windows. Although it has other [interesting features](https://github.com/microsoft/PowerToys).
     ![](./pic/powertoys-fancyzone.png)
 
 ## Docker Desktop
